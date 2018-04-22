@@ -3,14 +3,10 @@
 const fs = require('fs');
 const logger = require('./logger');
 
-const fileReader = module.exports = {};
-fileReader.read = (paths, characters, callback) => {
+module.exports = (paths, callback) => {
   logger.log(logger.VERBOSE, `Reading ${paths}`);
-
-  fs.readFile(paths, (error, fileBuffer) => {
-    if (error) {
-      throw error;
-    }
-    return callback(fileBuffer.toString('utf8', 0, characters));
+  return fs.readFile(paths, (error, data) => {
+    if (error) callback(error);
+    return callback(null, data.toString('utf8'));
   });
 };

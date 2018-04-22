@@ -7,6 +7,7 @@ const logger = module.exports = winston.createLogger({
   format: winston.format.json(),
   transports: [
     new winston.transports.File({ filename: 'log.log', level: 'verbose' }),
+    new winston.transports.File({ filename: 'error.log', level: 'erro' }),
     new winston.transports.Console({ format: winston.format.simple(), level: 'info' }),
   ],
 });
@@ -14,3 +15,4 @@ const logger = module.exports = winston.createLogger({
 logger.INFO = 'info';
 logger.ERROR = 'error';
 logger.VERBOSE = 'verbose';
+logger.WARN = 'warn';
