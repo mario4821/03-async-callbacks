@@ -1,7 +1,7 @@
 'use strict';
 
-const logger = require('../lib/logger');
-const fileReader = require('../lib/reader');
+const fileReader = require('./reader');
+const logger = require('./logger');
 
 const textOne = `${__dirname}/data/textone.txt`;
 const textTwo = `${__dirname}/data/texttwwo.txt`;
